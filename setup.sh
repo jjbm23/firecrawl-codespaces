@@ -9,6 +9,8 @@ echo ""
 echo "=== Firecrawl Codespace Setup ==="
 echo ""
 
+bash "$SCRIPT_DIR/prepare-docker.sh"
+
 # --- Step 1: Clone Firecrawl ---
 if [ ! -d "$FIRECRAWL_DIR" ]; then
     echo "[1/4] Cloning Firecrawl..."
@@ -55,7 +57,7 @@ echo "Waiting for Firecrawl to be ready..."
 
 READY=false
 for i in $(seq 1 60); do
-    if curl -sf "http://localhost:${FIRECRAWL_PORT}/health" > /dev/null 2>&1; then
+    if curl -sf "http://localhost:${FIRECRAWL_PORT}/v0/health/liveness" > /dev/null 2>&1; then
         READY=true
         break
     fi

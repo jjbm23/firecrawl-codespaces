@@ -84,8 +84,8 @@ Add this to your project's `CLAUDE.md`:
 Verify it works:
 
 ```bash
-curl http://localhost:3663/health
-# {"status": "ok"}
+curl http://localhost:3663/v0/health/liveness
+# {"ok":true}
 ```
 
 ## Keeping it alive
