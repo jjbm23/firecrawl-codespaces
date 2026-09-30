@@ -85,7 +85,7 @@ Verify it works:
 
 ```bash
 curl http://localhost:3663/v0/health/liveness
-# {"ok":true}
+# {"status":"ok"}
 ```
 
 ## Keeping it alive
