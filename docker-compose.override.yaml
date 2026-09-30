@@ -8,3 +8,8 @@ services:
   playwright-service:
     image: ghcr.io/firecrawl/playwright-service:latest
     build: !reset null
+
+  rabbitmq:
+    # On resume RabbitMQ can need more than the upstream 15-second retry window.
+    healthcheck:
+      start_period: 90s
